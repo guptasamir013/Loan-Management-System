@@ -1,0 +1,20 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<ul>
+  <li>customer : {{application.customer.user.username}}</li>
+  <li>staff : {{application.staff.user.username}}</li>
+  <li>type : {{application.type}}</li>
+  <li>amount : {{application.amount}}</li>
+  <li>status : {{application.status}}</li>
+  {% if prediction %}
+  <li>prediction : {{prediction}}</li>
+  {% endif %}
+</ul>
+
+{% if staff_group %}
+<a href="{% url 'accounts-update-application' pk=application.id %}">Update Application</a>
+<a href="{% url 'accounts-delete-application' pk=application.id %}">Delete Application</a>
+{% endif %}
+
+{% endblock %}

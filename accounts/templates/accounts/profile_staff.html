@@ -1,0 +1,11 @@
+{% extends "accounts/main.html" %}
+
+{% block content %}
+<h3>{{ staff.user.username }}</h3>
+<img src="{{ staff.pic.url }}" alt="{{ staff.user.username }}" height="150">
+<p>{{ staff.education }}</p>
+{% if admin_group %}
+<a href="{% url 'accounts-update-staff' pk=staff.id %}">Update Staff</a>
+<a href="{% url 'accounts-delete-staff' pk=staff.id %}">Delete Staff</a>
+{% endif %}
+{% endblock %}

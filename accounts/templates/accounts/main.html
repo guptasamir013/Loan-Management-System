@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LMS</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+  </head>
+  <body>
+    {% include "accounts/navbar.html" %}
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

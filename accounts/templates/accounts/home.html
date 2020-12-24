@@ -1,0 +1,31 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<ul>
+  {% if request.user.customer %}
+  <li><a href="{% url 'accounts-profile-customer' pk=request.user.customer.id %}">My Profile (Customer)</a></li>
+  {% elif request.user.staff %}
+  <li><a href="{% url 'accounts-profile-staff' pk=request.user.staff.id %}">My Profile (Staff)</a></li>
+  <li><a href="{% url 'accounts-register-customer' %}">Register Customer</a></li>
+  {% else %}
+  <li><a href="{% url 'accounts-register-staff' %}">Register Staff</a></li>
+  {% endif %}
+</ul>
+
+{% if not request.user.customer %}
+<form class="" action="" method="post">
+  {% csrf_token %}
+  staff id : <input type="text" name="staff_id" value="">
+  <input type="submit" name="" value="Search">
+</form>
+{% endif %}
+
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  customer id : <input type="text" name="customer_id" value="">
+  <input type="submit" name="" value="Search">
+</form>
+
+
+{% endblock %}

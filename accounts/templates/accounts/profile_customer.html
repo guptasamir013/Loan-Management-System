@@ -1,0 +1,32 @@
+{% extends "accounts/main.html" %}
+
+{% block content %}
+<h3>{{ customer.user.username }}</h3>
+<img src="{{ customer.pic.url }}" alt="{{ customer.user.username }}" height=150>
+<p>{{ customer.education }}</p>
+{% if staff_group %}
+<a href="{% url 'accounts-update-customer' pk=customer.id %}">Update Customer</a>
+<a href="{% url 'accounts-delete-customer' pk=customer.id %}">Delete Customer</a>
+<a href="{% url 'accounts-create-application' pk=customer.id %}">Create Application</a>
+{% endif %}
+
+<table>
+  <tr>
+    <th>Application ID</th>
+    <th>Customer</th>
+    <th>Staff</th>
+    <th>Status</th>
+    <th>View</th>
+  </tr>
+  {% for application in applications %}
+  <tr>
+    <td>{{application.id}}</td>
+    <td>{{application.customer.user.username}}</td>
+    <td>{{application.staff.user.username}}</td>
+    <td>{{application.status}}</td>
+    <td><a href="{% url 'accounts-read-application' pk=application.id %}">View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

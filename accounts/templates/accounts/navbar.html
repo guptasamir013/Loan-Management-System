@@ -1,0 +1,13 @@
+{% load static %}
+
+<table>
+  <tr>
+    <th><img src="{% static 'accounts/images/logo.png' %}" alt="" height=20px></th>
+    <th><a href="{% url 'accounts-home' %}">Home</a></th>
+    {% if request.user.is_authenticated %}
+    <th><a href="{% url 'accounts-logout-user' %}">Logout {{request.user.username}}</a></th>
+    {% else %}
+    <th><a href="{% url 'accounts-login-user' %}">Login</a></th>
+    {% endif %}
+  </tr>
+</table>

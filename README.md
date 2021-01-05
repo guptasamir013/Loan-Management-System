@@ -23,3 +23,8 @@
 13. Delete Loan Application: 'delete_application/id/'
 14. Login: 'login/'
 15. Logout: 'logout/'
+
+## Description
+- The Django based Web Application allows the staff members to keep the record of customers and their loan applications
+- Groups & Permissions are used to restrict the customers’ access to only view their applications & check approval status
+- Implemented Logistic Regression to predict Loan Approval with features like approval history,property,education-81% acc
